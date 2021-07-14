@@ -1,0 +1,8 @@
+@import "./normalize.css";
+
+html {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
