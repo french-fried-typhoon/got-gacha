@@ -133,17 +133,33 @@ function startGacha() {
   text-align: center;
   font-size: 24px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    line-height: 48px;
+    font-size: 48px;
+    font-weight: 700;
+  }
 }
 
 .lead {
   padding-top: 4px;
   text-align: center;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    padding-top: 12px;
+    line-height: 24px;
+    font-size: 20px;
+  }
 }
 
 .action {
   padding-top: 16px;
+
+  @media (min-width: 768px) {
+    padding-top: 24px;
+  }
 }
 
 .action-button {
@@ -151,11 +167,11 @@ function startGacha() {
   margin: 0 auto;
   border-radius: 4px;
   padding: 0 24px;
-  max-width: 168px;
+  max-width: 192px;
   letter-spacing: 1px;
   line-height: 40px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   color: #ffffff;
   background-color: #b63424;
   transition: background-color .25s;
@@ -168,6 +184,13 @@ function startGacha() {
     background-color: #9a291c;
     transition: background-color .1s;
   }
+
+  @media (min-width: 768px) {
+    padding: 0 32px;
+    max-width: 256px;
+    line-height: 48px;
+    font-size: 16px;
+  }
 }
 
 .data {
@@ -176,6 +199,12 @@ function startGacha() {
   border-radius: 8px;
   padding: 32px;
   max-width: 288px;
+
+  @media (min-width: 768px) {
+    margin: 32px auto 0;
+    padding: 48px 64px;
+    max-width: 392px;
+  }
 }
 
 .item {
@@ -184,14 +213,18 @@ function startGacha() {
 
 .item + .item {
   padding-top: 8px;
+
+  @media (min-width: 768px) {
+    padding-top: 16px;
+  }
 }
 
-.item:nth-child(1) .value { transition-delay: 0s; }
-.item:nth-child(2) .value { transition-delay: .15s; }
-.item:nth-child(3) .value { transition-delay: .3s; }
-.item:nth-child(4) .value { transition-delay: .45s; }
-.item:nth-child(5) .value { transition-delay: .6s; }
-.item:nth-child(6) .value { transition-delay: .75s; }
+.item:nth-child(1) .value.fade-enter-active { transition-delay: 1s; }
+.item:nth-child(2) .value.fade-enter-active { transition-delay: 3s; }
+.item:nth-child(3) .value.fade-enter-active { transition-delay: 5s; }
+.item:nth-child(4) .value.fade-enter-active { transition-delay: 7s; }
+.item:nth-child(5) .value.fade-enter-active { transition-delay: 9s; }
+.item:nth-child(6) .value.fade-enter-active { transition-delay: 11s; }
 
 .label {
   position: relative;
@@ -199,8 +232,13 @@ function startGacha() {
   padding-right: 24px;
   width: 80px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   color: rgba(60, 60, 67, .75);
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    width: 96px;
+  }
 }
 
 .label::after {
@@ -215,11 +253,15 @@ function startGacha() {
 
 .value {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .value.fade-enter-active {
-  transition: opacity .75s, transform .75s, filter .75s;
+  transition: opacity 2s, transform 2s ease, filter 2s ease;
 }
 
 .value.fade-leave-active {
@@ -228,8 +270,8 @@ function startGacha() {
 
 .value.fade-enter-from {
   opacity: 0;
-  filter: blur(32px);
-  transform: translateX(16px) scale(1.5);
+  filter: blur(48px);
+  transform: translateX(24px) scale(2);
 }
 
 .value.fade-leave-to {
@@ -240,12 +282,20 @@ function startGacha() {
 
 .footer {
   padding-top: 16px;
+
+  @media (min-width: 768px) {
+    padding-top: 24px;
+  }
 }
 
 .footer-text {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   color: rgba(60, 60, 67, .75);
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 </style>
