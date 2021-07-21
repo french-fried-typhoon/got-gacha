@@ -4,6 +4,7 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   rules: {
-    '@typescript-eslint/no-non-null-assertion': 'off'
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'vue/singleline-html-element-content-newline': 'off'
   }
 }
