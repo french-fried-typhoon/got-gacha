@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useGotAngu1Weapon, useGotAngu2Weapon, useGotGofuWeapon, useGotLongDistanceWeapon, useGotRole, useGotTachiWeapon } from '../composables/gacha'
+import {
+  useGotAngu1Weapon,
+  useGotAngu2Weapon,
+  useGotGofuWeapon,
+  useGotLongDistanceWeapon,
+  useGotRole,
+  useGotTachiWeapon
+} from '../composables/gacha'
+import GBrushStroke from '../components/GBrushStroke.vue'
+import GBrushLine from '../components/GBrushLine.vue'
 import { shuffle } from '../utils/array'
 
 const count = ref(0)
@@ -49,7 +58,7 @@ function startGacha() {
 </script>
 
 <template>
-  <div class="Main">
+  <div class="Main" :class="{ shake }">
     <div class="container">
       <div class="header">
         <h1 class="title">GOT GACHA</h1>
@@ -58,7 +67,8 @@ function startGacha() {
 
       <div class="action">
         <button class="action-button" @click="startGacha">
-          START GACHA
+          <GBrushStroke class="action-brush" />
+          <span class="action-text">ガチャを回す</span>
         </button>
       </div>
 
@@ -70,6 +80,7 @@ function startGacha() {
               {{ gotRole?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">太刀</p>
@@ -78,6 +89,7 @@ function startGacha() {
               {{ gotTachiWeapon?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">遠距離</p>
@@ -86,6 +98,7 @@ function startGacha() {
               {{ gotLongDistanceWeapon?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">護符</p>
@@ -94,27 +107,33 @@ function startGacha() {
               {{ gotGofuWeapon?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">暗具1</p>
+          <p class="label">暗具 壱</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
               {{ gotAngu1Weapon?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">暗具2</p>
+          <p class="label">暗具 弐</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
               {{ gotAngu2Weapon?.text ?? '???' }}
             </p>
           </transition>
+          <GBrushLine class="line" />
         </div>
       </div>
 
       <footer class="footer">
-        <p class="footer-text">Created by French Fried Typhoon</p>
+        <p class="footer-text">
+          考案・制作・管理<br>
+          フレンチ・フライド・タイフーン
+        </p>
       </footer>
     </div>
   </div>
@@ -122,7 +141,11 @@ function startGacha() {
 
 <style lang="postcss" scoped>
 .Main {
-  padding: 64px 32px 96px;
+  padding: 64px 0 96px;
+
+  @media (min-width: 768px) {
+    padding-top: 96px;
+  }
 }
 
 .container {
@@ -130,8 +153,9 @@ function startGacha() {
 }
 
 .title {
+  letter-spacing: 2px;
   text-align: center;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
 
   @media (min-width: 768px) {
@@ -141,8 +165,13 @@ function startGacha() {
   }
 }
 
+.title-char {
+  display: inline-block;
+  transition: transform 1s;
+}
+
 .lead {
-  padding-top: 4px;
+  padding-top: 8px;
   text-align: center;
   font-size: 16px;
   font-weight: 700;
@@ -155,60 +184,75 @@ function startGacha() {
 }
 
 .action {
-  padding-top: 16px;
+  padding-top: 24px;
 
   @media (min-width: 768px) {
-    padding-top: 24px;
+    padding-top: 32px;
   }
 }
 
 .action-button {
+  position: relative;
   display: block;
   margin: 0 auto;
-  border-radius: 4px;
-  padding: 0 24px;
-  max-width: 192px;
-  letter-spacing: 1px;
-  line-height: 40px;
-  font-size: 14px;
-  font-weight: 700;
+  width: 100%;
+  max-width: 512px;
   color: #ffffff;
-  background-color: #b63424;
-  transition: background-color .25s;
 
-  &:hover {
-    background-color: #aa3021;
+  &:hover .action-brush {
+    fill: #b63424;
   }
 
-  &:active {
-    background-color: #9a291c;
-    transition: background-color .1s;
+  &:active .action-brush {
+    fill: #9a291c;
+    fill: background-color .1s;
   }
 
   @media (min-width: 768px) {
-    padding: 0 32px;
-    max-width: 256px;
     line-height: 48px;
     font-size: 16px;
   }
 }
 
-.data {
-  margin: 24px auto 0;
-  border: 1px solid rgba(60, 60, 67, .24);
-  border-radius: 8px;
-  padding: 32px;
-  max-width: 288px;
+.action-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  letter-spacing: 2px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
 
   @media (min-width: 768px) {
-    margin: 32px auto 0;
-    padding: 48px 64px;
-    max-width: 392px;
+    padding-top: 2px;
+    font-size: 20px;
+  }
+}
+
+.action-brush {
+  position: relative;
+  transition: fill .25s;
+}
+
+.data {
+  margin: 32px auto 0;
+  max-width: 480px;
+
+  @media (min-width: 768px) {
+    margin: 48px auto 0;
   }
 }
 
 .item {
+  position: relative;
   display: flex;
+  padding: 0 32px 12px 32px;
+
+  @media (min-width: 768px) {
+    padding: 0 48px 16px 48px;
+  }
 }
 
 .item + .item {
@@ -226,6 +270,13 @@ function startGacha() {
 .item:nth-child(5) .value.fade-enter-active { transition-delay: 8s; }
 .item:nth-child(6) .value.fade-enter-active { transition-delay: 10s; }
 
+.item:nth-child(1) .line { right: -12px; left: -16px; }
+.item:nth-child(2) .line { right: -2px; left: -6px; }
+.item:nth-child(3) .line { right: 2px; left: -24px; }
+.item:nth-child(4) .line { right: -6px; left: 4px; }
+.item:nth-child(5) .line { right: 1px; left: -8px; }
+.item:nth-child(6) .line { right: -4px; left: 4px; }
+
 .label {
   position: relative;
   flex-shrink: 0;
@@ -237,18 +288,8 @@ function startGacha() {
 
   @media (min-width: 768px) {
     font-size: 20px;
-    width: 96px;
+    width: 128px;
   }
-}
-
-.label::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  margin-right: 12px;
-  color: rgba(60, 60, 67, .75);
-  content: ":";
 }
 
 .value {
@@ -271,7 +312,7 @@ function startGacha() {
 .value.fade-enter-from {
   opacity: 0;
   filter: blur(32px);
-  transform: translateX(24px) scale(4);
+  transform: translateX(24px) scale(8);
 }
 
 .value.fade-leave-to {
@@ -280,22 +321,34 @@ function startGacha() {
   transform: translateX(-8px) scale(.8);
 }
 
+.line {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  fill: #999999;
+}
+
 .footer {
-  padding-top: 16px;
+  padding-top: 32px;
 
   @media (min-width: 768px) {
-    padding-top: 24px;
+    padding-top: 48px;
   }
 }
 
 .footer-text {
-  font-size: 12px;
+  line-height: 20px;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
   color: rgba(60, 60, 67, .75);
 
   @media (min-width: 768px) {
-    font-size: 14px;
+    line-height: 24px;
+    font-size: 16px;
   }
 }
 </style>
