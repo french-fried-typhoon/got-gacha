@@ -10,7 +10,11 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="GButton" role="button" @click="emit('click')">
+  <div
+    class="GButton"
+    role="button"
+    @click="emit('click')"
+  >
     {{ text }}
   </div>
 </template>

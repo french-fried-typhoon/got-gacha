@@ -89,7 +89,7 @@ const gotTachiWeaponGachaItems: GotTachiWeaponGachaItem[]  = [
 
 export function useGotTachiWeapon() {
   const gotTachiWeapon: Ref<GotTachiWeaponGachaItem | null> = ref(null)
-  function startGacha(gotRole: GotRole, excludeGodItem: boolean = false) {
+  function startGacha(gotRole: GotRole, excludeGodItem = false) {
     gotTachiWeapon.value = excludeGodItem
       ? gacha(gotTachiWeaponGachaItems
           .filter(item => !item.isGodItem && item.belongRole.includes(gotRole))
@@ -131,7 +131,7 @@ const gotLongDistanceWeaponGachaItems: GotLongDistanceWeaponGachaItem[]  = [
 
 export function useGotLongDistanceWeapon() {
   const gotLongDistanceWeapon: Ref<GotLongDistanceWeaponGachaItem | null> = ref(null)
-  function startGacha(gotRole: GotRole, excludeGodItem: boolean = false) {
+  function startGacha(gotRole: GotRole, excludeGodItem = false) {
     gotLongDistanceWeapon.value = excludeGodItem
       ? gacha(gotLongDistanceWeaponGachaItems
           .filter(item => !item.isGodItem && item.belongRole.includes(gotRole))
@@ -186,7 +186,7 @@ const gotGofuWeaponGachaItems: GotGofuWeaponGachaItem[]  = [
 
 export function useGotGofuWeapon() {
   const gotGofuWeapon: Ref<GotGofuWeaponGachaItem | null> = ref(null)
-  function startGacha(gotRole: GotRole, excludeGodItem: boolean = false) {
+  function startGacha(gotRole: GotRole, excludeGodItem = false) {
     gotGofuWeapon.value = excludeGodItem
       ? gacha(gotGofuWeaponGachaItems
           .filter(item => !item.isGodItem && item.belongRole.includes(gotRole))
@@ -225,7 +225,7 @@ const gotAngu1WeaponGachaItems: GotAngu1WeaponGachaItem[]  = [
 
 export function useGotAngu1Weapon() {
   const gotAngu1Weapon: Ref<GotAngu1WeaponGachaItem | null> = ref(null)
-  function startGacha(gotRole: GotRole, excludeGodItem: boolean = false) {
+  function startGacha(gotRole: GotRole, excludeGodItem = false) {
     gotAngu1Weapon.value = excludeGodItem
       ? gacha(gotAngu1WeaponGachaItems
           .filter(item => !item.isGodItem && item.belongRole.includes(gotRole))
@@ -263,7 +263,7 @@ const gotAngu2WeaponGachaItems: GotAngu2WeaponGachaItem[]  = [
 
 export function useGotAngu2Weapon() {
   const gotAngu2Weapon: Ref<GotAngu2WeaponGachaItem | null> = ref(null)
-  function startGacha(gotRole: GotRole, excludeGodItem: boolean = false) {
+  function startGacha(gotRole: GotRole, excludeGodItem = false) {
     gotAngu2Weapon.value = excludeGodItem
       ? gacha(gotAngu2WeaponGachaItems
           .filter(item => !item.isGodItem && item.belongRole.includes(gotRole))

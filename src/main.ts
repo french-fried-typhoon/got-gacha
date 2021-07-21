@@ -1,6 +1,7 @@
 import 'vue-global-api'
+import './assets/styles/bootstrap.css'
+
 import { createApp } from 'vue'
-import { router } from './route'
 import App from './App.vue'
 
-createApp(App).use(router).mount('#app')
+createApp(App).mount('#app')
