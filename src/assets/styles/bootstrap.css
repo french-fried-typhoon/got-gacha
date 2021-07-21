@@ -17,7 +17,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #000000;
-  background-color: #efe8de;
+  background-color: #f0f0f0;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
   direction: ltr;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -172,7 +172,7 @@ function startGacha() {
 
 .data {
   margin: 24px auto 0;
-  border: 1px solid rgba(60, 60, 67, .12);
+  border: 1px solid rgba(60, 60, 67, .24);
   border-radius: 8px;
   padding: 32px;
   max-width: 288px;
@@ -200,7 +200,7 @@ function startGacha() {
   width: 80px;
   font-size: 16px;
   font-weight: 500;
-  color: rgba(60, 60, 67, .6);
+  color: rgba(60, 60, 67, .75);
 }
 
 .label::after {
@@ -209,7 +209,7 @@ function startGacha() {
   right: 0;
   display: inline-block;
   margin-right: 12px;
-  color: rgba(60, 60, 67, .6);
+  color: rgba(60, 60, 67, .75);
   content: ":";
 }
 
@@ -246,6 +246,6 @@ function startGacha() {
   font-size: 12px;
   font-weight: 500;
   text-align: center;
-  color: rgba(60, 60, 67, .6);
+  color: rgba(60, 60, 67, .75);
 }
 </style>
