@@ -43,10 +43,10 @@ export interface GotRoleGachaItem extends GachaItem {
 const allGotRole: GotRole[] = ['Samurai', 'Yumitori', 'Rohnin', 'Shikaku']
 
 const gotRoleGachaItems: GotRoleGachaItem[]  = [
-  { name: 'Samurai', text: '侍', probability: 30 },
-  { name: 'Yumitori', text: '弓取', probability: 20 },
-  { name: 'Rohnin', text: '牢人', probability: 20 },
-  { name: 'Shikaku', text: '刺客', probability: 30 }
+  { name: 'Samurai', text: '侍', probability: 25 },
+  { name: 'Yumitori', text: '弓取', probability: 25 },
+  { name: 'Rohnin', text: '牢人', probability: 25 },
+  { name: 'Shikaku', text: '刺客', probability: 25 }
 ]
 
 export function useGotRole() {
@@ -69,7 +69,7 @@ export function useGotRole() {
  * - 風の太刀 WindSword
  * - 石の太刀 StoneSword
  */
-export type GotTachiWeapon = 'MasterSword' | 'MasamuneTreasures' | 'RockSword' | 'YoshitsuneArms' 
+export type GotTachiWeapon = 'MasterSword' | 'MasamuneTreasures' | 'RockSword' | 'YoshitsuneArms'
   | 'BusterDevilSword' | 'WaterSword' | 'MoonSword' | 'WindSword' | 'StoneSword'
 export interface GotTachiWeaponGachaItem extends GachaWeaponItem {
   name: GotTachiWeapon
@@ -112,7 +112,7 @@ export function useGotTachiWeapon() {
  * - 腰袋 WaistBag
  * - 長弓 LongBow
  */
-export type GotLongDistanceWeapon = 'FuyuBow' | 'HisekiBow' | 'KinseiGunpowder' | 'TenfuruFang' 
+export type GotLongDistanceWeapon = 'FuyuBow' | 'HisekiBow' | 'KinseiGunpowder' | 'TenfuruFang'
   | 'SmallBow' | 'Blowgun' | 'WaistBag' | 'LongBow'
 export interface GotLongDistanceWeaponGachaItem extends GachaWeaponItem {
   name: GotLongDistanceWeapon
@@ -160,7 +160,7 @@ export function useGotLongDistanceWeapon() {
  * - 隠密の護符 OnmitsuGofu
  * - 弓取の護符 YumitoriGofu
  */
-export type GotGofuWeapon = 'EnjouMouring' | 'Indomitable' | 'SteelInnGrudge' | 'BenkeiGofu' 
+export type GotGofuWeapon = 'EnjouMouring' | 'Indomitable' | 'SteelInnGrudge' | 'BenkeiGofu'
   | 'ShogunDefense' | 'DefenseGofu' | 'BenefitGofu' | 'ThugGofu' | 'OffenseGofu'
   | 'SamuraiGofu' | 'LongDistanceGofu' | 'RohninGofu' | 'OnmitsuGofu' | 'YumitoriGofu'
 export interface GotGofuWeaponGachaItem extends GachaWeaponItem {
@@ -207,7 +207,7 @@ export function useGotGofuWeapon() {
  * - 泥投げ MudThrowing
  * - とりもち玉 BirdlimeBall
  */
-export type GotAngu1Weapon = 'KunaiKai' | 'UmugigozenFarewell' | 'HeavenHealing' | 'Kunai' 
+export type GotAngu1Weapon = 'KunaiKai' | 'UmugigozenFarewell' | 'HeavenHealing' | 'Kunai'
   | 'MudThrowing' | 'BirdlimeBall'
 export interface GotAngu1WeaponGachaItem extends GachaWeaponItem {
   name: GotAngu1Weapon
@@ -246,7 +246,7 @@ export function useGotAngu1Weapon() {
  * - まきびし Makibishi
  * - 煙玉 SmokeBall
  */
-export type GotAngu2Weapon = 'YagataFog' | 'YoukaiSeed' | 'KenjiSake' | 'Portion' 
+export type GotAngu2Weapon = 'YagataFog' | 'YoukaiSeed' | 'KenjiSake' | 'Portion'
   | 'Makibishi' | 'SmokeBall'
 export interface GotAngu2WeaponGachaItem extends GachaWeaponItem {
   name: GotAngu2Weapon
