@@ -58,7 +58,7 @@ function startGacha() {
 </script>
 
 <template>
-  <div class="Main" :class="{ shake }">
+  <div class="Main">
     <div class="container">
       <div class="header">
         <h1 class="title">GoT GACHA</h1>
