@@ -219,12 +219,12 @@ function startGacha() {
   }
 }
 
-.item:nth-child(1) .value.fade-enter-active { transition-delay: 1s; }
-.item:nth-child(2) .value.fade-enter-active { transition-delay: 3s; }
-.item:nth-child(3) .value.fade-enter-active { transition-delay: 5s; }
-.item:nth-child(4) .value.fade-enter-active { transition-delay: 7s; }
-.item:nth-child(5) .value.fade-enter-active { transition-delay: 9s; }
-.item:nth-child(6) .value.fade-enter-active { transition-delay: 11s; }
+.item:nth-child(1) .value.fade-enter-active { transition-delay: 0; }
+.item:nth-child(2) .value.fade-enter-active { transition-delay: 2s; }
+.item:nth-child(3) .value.fade-enter-active { transition-delay: 4s; }
+.item:nth-child(4) .value.fade-enter-active { transition-delay: 6s; }
+.item:nth-child(5) .value.fade-enter-active { transition-delay: 8s; }
+.item:nth-child(6) .value.fade-enter-active { transition-delay: 10s; }
 
 .label {
   position: relative;
