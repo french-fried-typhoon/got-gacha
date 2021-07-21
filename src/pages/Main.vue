@@ -10,6 +10,7 @@ import {
 } from '../composables/gacha'
 import GBrushStroke from '../components/GBrushStroke.vue'
 import GBrushLine from '../components/GBrushLine.vue'
+import GTwitterShareButton from '../components/GTwitterShareButton.vue'
 import { shuffle } from '../utils/array'
 
 const count = ref(0)
@@ -40,6 +41,18 @@ const godItemCount = computed(() => {
     sum += weapon?.isGodItem ? 1 : 0
     return sum
   }, 0)
+})
+
+const result = computed(() => {
+  return `
+    【GoT GACHA 結果】%0a
+    役目： ${gotRole.value?.text ?? '未決定' } %0a
+    太刀： ${gotTachiWeapon.value?.text ?? '未決定' } %0a
+    遠距離： ${gotLongDistanceWeapon.value?.text ?? '未決定' } %0a
+    護符： ${gotGofuWeapon.value?.text ?? '未決定' } %0a
+    暗具 壱： ${gotAngu1Weapon.value?.text ?? '未決定' } %0a
+    暗具 弍： ${gotAngu2Weapon.value?.text ?? '未決定' } %0a
+  `
 })
 
 function startGacha() {
@@ -127,6 +140,15 @@ function startGacha() {
           </transition>
           <GBrushLine class="line" />
         </div>
+      </div>
+      <div class="sns">
+        <GTwitterShareButton
+          class="share-button"
+          label="結果をシェア"
+          :text="result"
+          url="https://got-gacha.netlify.app/"
+          hashtags="GoTGACHA,GhostofTsushima"
+        />
       </div>
 
       <footer class="footer">
@@ -329,6 +351,14 @@ function startGacha() {
   width: 100%;
   height: 4px;
   fill: #999999;
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .footer {
