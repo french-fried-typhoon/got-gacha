@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import GButton from '~/components/parts/GButton.vue'
+import { ref } from 'vue'
 import { useGotAngu1Weapon, useGotAngu2Weapon, useGotGofuWeapon, useGotLongDistanceWeapon, useGotRole, useGotTachiWeapon } from '../composables/gacha'
 import { shuffle } from '../utils/array'
+
+const count = ref(0)
 
 const { gotRole, startGacha: startGotRoleGacha } = useGotRole()
 const { gotTachiWeapon, startGacha: startGotTachiWeaponGacha } = useGotTachiWeapon()
@@ -32,6 +34,8 @@ const godItemCount = computed(() => {
 })
 
 function startGacha() {
+  count.value++
+
   // Role Gacha
   startGotRoleGacha()
 
@@ -53,10 +57,7 @@ function startGacha() {
       </div>
 
       <div class="action">
-        <button
-          class="action-button"
-          @click="startGacha"
-        >
+        <button class="action-button" @click="startGacha">
           START GACHA
         </button>
       </div>
@@ -64,84 +65,48 @@ function startGacha() {
       <div class="data">
         <div class="item">
           <p class="label">役目</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotRole?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotRole?.text ?? '???' }}
             </p>
           </transition>
         </div>
         <div class="item">
           <p class="label">太刀</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotTachiWeapon?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotTachiWeapon?.text ?? '???' }}
             </p>
           </transition>
         </div>
         <div class="item">
           <p class="label">遠距離</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotLongDistanceWeapon?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotLongDistanceWeapon?.text ?? '???' }}
             </p>
           </transition>
         </div>
         <div class="item">
           <p class="label">護符</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotGofuWeapon?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotGofuWeapon?.text ?? '???' }}
             </p>
           </transition>
         </div>
         <div class="item">
           <p class="label">暗具1</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotAngu1Weapon?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotAngu1Weapon?.text ?? '???' }}
             </p>
           </transition>
         </div>
         <div class="item">
           <p class="label">暗具2</p>
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <p
-              :key="gotAngu2Weapon?.text ?? '???'"
-              class="value"
-            >
+          <transition name="fade" mode="out-in">
+            <p :key="count" class="value">
               {{ gotAngu2Weapon?.text ?? '???' }}
             </p>
           </transition>
