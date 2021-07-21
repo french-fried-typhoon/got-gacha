@@ -61,8 +61,8 @@ function startGacha() {
   <div class="Main" :class="{ shake }">
     <div class="container">
       <div class="header">
-        <h1 class="title">GOT GACHA</h1>
-        <p class="lead">A STORM IS COMING</p>
+        <h1 class="title">GoT GACHA</h1>
+        <p class="lead">A Storm Is Coming</p>
       </div>
 
       <div class="action">
