@@ -270,8 +270,8 @@ function startGacha() {
 
 .value.fade-enter-from {
   opacity: 0;
-  filter: blur(48px);
-  transform: translateX(24px) scale(2);
+  filter: blur(32px);
+  transform: translateX(24px) scale(4);
 }
 
 .value.fade-leave-to {
