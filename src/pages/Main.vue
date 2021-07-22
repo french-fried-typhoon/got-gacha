@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import {
   useGotAngu1Weapon,
   useGotAngu2Weapon,
@@ -12,6 +13,10 @@ import GBrushStroke from '../components/GBrushStroke.vue'
 import GBrushLine from '../components/GBrushLine.vue'
 import GTwitterShareButton from '../components/GTwitterShareButton.vue'
 import { shuffle } from '../utils/array'
+
+const { locale, t } = useI18n({
+  inheritLocale: true
+})
 
 const count = ref(0)
 
@@ -81,61 +86,61 @@ function startGacha() {
       <div class="action">
         <button class="action-button" @click="startGacha">
           <GBrushStroke class="action-brush" />
-          <span class="action-text">ガチャを回す</span>
+          <span class="action-text">{{ t('rollGacha') }}</span>
         </button>
       </div>
 
       <div class="data">
         <div class="item">
-          <p class="label">役目</p>
+          <p class="label">{{ t('item.class') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotRole?.text ?? '???' }}
+              {{ gotRole?.name ? t(`class.${gotRole?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">太刀</p>
+          <p class="label">{{ t('item.katana') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotTachiWeapon?.text ?? '???' }}
+              {{ gotTachiWeapon?.name ? t(`katana.${gotTachiWeapon?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">遠距離</p>
+          <p class="label">{{ t('item.ranged') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotLongDistanceWeapon?.text ?? '???' }}
+              {{ gotLongDistanceWeapon?.name ? t(`ranged.${gotLongDistanceWeapon?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">護符</p>
+          <p class="label">{{ t('item.charm') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotGofuWeapon?.text ?? '???' }}
+              {{ gotGofuWeapon?.name ? t(`charm.${gotGofuWeapon?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">暗具 壱</p>
+          <p class="label">{{ t('item.ghostWeapon1') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotAngu1Weapon?.text ?? '???' }}
+              {{ gotAngu1Weapon?.name ? t(`ghostWeapon1.${gotAngu1Weapon?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
-          <p class="label">暗具 弐</p>
+          <p class="label">{{ t('item.ghostWeapon2') }}</p>
           <transition name="fade" mode="out-in">
             <p :key="count" class="value">
-              {{ gotAngu2Weapon?.text ?? '???' }}
+              {{ gotAngu2Weapon?.name ? t(`ghostWeapon2.${gotAngu2Weapon?.name}`) : '???' }}
             </p>
           </transition>
           <GBrushLine class="line" />
@@ -144,7 +149,7 @@ function startGacha() {
       <div class="sns">
         <GTwitterShareButton
           class="share-button"
-          label="結果をシェア"
+          :label="t('shareResult')"
           :text="result"
           url="https://got-gacha.netlify.app/"
           hashtags="GoTGACHA,GhostofTsushima"
@@ -153,8 +158,8 @@ function startGacha() {
 
       <footer class="footer">
         <p class="footer-text">
-          考案・制作・管理<br>
-          フレンチ・フライド・タイフーン
+          {{ t('createdBy') }}<br>
+          {{ t('fft') }}
         </p>
       </footer>
     </div>

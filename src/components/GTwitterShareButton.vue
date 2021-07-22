@@ -36,6 +36,7 @@ function handleClick() {
   position: relative;
   color: #ffffff;
   font-size: 14px;
+  letter-spacing: 1px;
 
   &:hover .action-brush {
     fill: #3f95e0;
@@ -48,7 +49,7 @@ function handleClick() {
 }
 
 .action-brush {
-  width: 248px;
+  width: 324px;
   transition: fill .25s;
 }
 
@@ -60,8 +61,12 @@ function handleClick() {
 
 .label {
   position: absolute;
-  top: 16%;
-  left: 30%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   z-index: 10;
 }
 

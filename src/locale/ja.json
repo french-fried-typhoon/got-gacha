@@ -1,0 +1,73 @@
+{
+  "rollGacha": "ガチャを回す",
+  "shareResult": "結果をシェア",
+  "createdBy": "考案・制作・管理",
+  "fft": "フレンチ・フライド・タイフーン",
+  "item": {
+    "class": "役目",
+    "katana": "太刀",
+    "ranged": "遠距離",
+    "charm": "護符",
+    "ghostWeapon1": "暗具 壱",
+    "ghostWeapon2": "暗具 弍"
+  },
+  "class": {
+    "samurai": "侍",
+    "hunter": "弓取",
+    "ronin" : "牢人",
+    "assassin": "刺客"
+  },
+  "katana": {
+    "mastersKatana": "達人の太刀",
+    "masamunesEdge": "正宗の至宝",
+    "stoneStriker": "岩斬刀",
+    "yoshitsunesHand": "義経の腕",
+    "demonCutter": "討魔の剣",
+    "waterKatana": "水の太刀",
+    "moonKatana": "月の太刀",
+    "windKatana": "風の太刀",
+    "stoneKatana": "石の太刀"
+  },
+  "ranged": {
+    "theWeightlessSpirit": "浮遊の弓",
+    "stoneSkippingBow": "飛石の弓",
+    "forbiddenMedicine": "禁制の火薬",
+    "heavensSting": "天降る牙",
+    "halfBow": "半弓",
+    "blowgun": "吹き針",
+    "bombPack": "腰袋",
+    "longBow": "長弓"
+  },
+  "charm": {
+    "enjosRemorse": "円浄の嘆き",
+    "lastBreath": "不撓不屈",
+    "sacredIron": "鋼の宿怨",
+    "benkeisLastStand": "弁慶の護符",
+    "shogunsFortitune": "将軍の守り",
+    "defenseCharm": "守りの護符",
+    "utilityCharm": "利益の護符",
+    "assassinCharm": "刺客の護符",
+    "meleeCharm": "攻めの護符",
+    "samuraiCharm": "侍の護符",
+    "rangedCharm": "遠距離の護符",
+    "roninCharm": "牢人の護符",
+    "stealthCharm": "隠密の護符",
+    "hunterCharm": "弓取の護符"
+  },
+  "ghostWeapon1": {
+    "spiritKunai": "くない・改",
+    "ladySanjosSurprise": "卯麦御前の餞",
+    "theTouchOfHeaven": "天の癒し",
+    "kunai": "くない",
+    "dirtThrow": "泥投げ",
+    "stickyBomb": "とりもち玉"
+  },
+  "ghostWeapon2": {
+    "mistOfYagata": "矢形の霧",
+    "demonSeeds": "妖の種",
+    "kenjisSharedBrew": "堅二の酒",
+    "healingGourd": "回復薬",
+    "caltrops": "まきびし",
+    "smokeBomb": "煙玉"
+  }
+}

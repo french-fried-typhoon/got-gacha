@@ -1,0 +1,73 @@
+{
+  "rollGacha": "Roll a GACHA",
+  "shareResult": "SHARE THE RESULT",
+  "createdBy": "Created by",
+  "fft": "French Fried Typhoon",
+  "item": {
+    "class": "CLASS",
+    "katana": "KATANA",
+    "ranged": "RANGED",
+    "charm": "CHARM",
+    "ghostWeapon1": "GHOST WEAPON 1",
+    "ghostWeapon2": "GHOST WEAPON 2"
+  },
+  "class": {
+    "samurai": "SAMURAI",
+    "hunter": "HUNTER",
+    "ronin" : "RONIN",
+    "assassin": "ASSASSIN"
+  },
+  "katana": {
+    "mastersKatana": "MASTER'S KATANA",
+    "masamunesEdge": "MASAMUNE'S EDGE",
+    "stoneStriker": "STONE STRIKER",
+    "yoshitsunesHand": "YOSHITSUNE'S HAND",
+    "demonCutter": "DEMON CUTTER",
+    "waterKatana": "WATER KATANA",
+    "moonKatana": "MOON KATANA",
+    "windKatana": "WIND KATANA",
+    "stoneKatana": "STONE KATANA"
+  },
+  "ranged": {
+    "theWeightlessSpirit": "THE WEIGHTLESS SPIRIT",
+    "stoneSkippingBow": "STONE SKIPPING BOW",
+    "forbiddenMedicine": "FORBIDDEN MEDICINE",
+    "heavensSting": "HEAVEN STING",
+    "halfBow": "HALF BOW",
+    "blowgun": "BLOWGUN",
+    "bombPack": "BOMB PACK",
+    "longBow": "LONGBOW"
+  },
+  "charm": {
+    "enjosRemorse": "ENJO’S REMORSE",
+    "lastBreath": "LAST BREATH",
+    "sacredIron": "SACRED IRON",
+    "benkeisLastStand": "BENKEI’S LAST STAND",
+    "shogunsFortitune": "SHOGUN’S FORTITUDE",
+    "defenseCharm": "DEFENSE CHARM",
+    "utilityCharm": "UTILITY CHARM",
+    "assassinCharm": "ASSASSIN CHARM",
+    "meleeCharm": "MELEE CHARM",
+    "samuraiCharm": "SAMURAI CHARM",
+    "rangedCharm": "RANGED CHARM",
+    "roninCharm": "RONIN CHARM",
+    "stealthCharm": "STEALTH CHARM",
+    "hunterCharm": "HUNTER CHARM"
+  },
+  "ghostWeapon1": {
+    "spiritKunai": "SPIRIT KUNAI",
+    "ladySanjosSurprise": "LADY SANJO’S SURPRISE",
+    "theTouchOfHeaven": "THE TOUCH OF HEAVEN",
+    "kunai": "KUNAI",
+    "dirtThrow": "DIRT THROW",
+    "stickyBomb": "STICKY BOMB"
+  },
+  "ghostWeapon2": {
+    "mistOfYagata": "MIST OF YAGATA",
+    "demonSeeds": "DEMON SEEDS",
+    "kenjisSharedBrew": "KENJI’S SHARED BREW",
+    "healingGourd": "HEALING GOURD",
+    "caltrops": "CALTROPS",
+    "smokeBomb": "SMOKE BOMB"
+  }
+}
