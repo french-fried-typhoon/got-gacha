@@ -39,11 +39,11 @@ function handleClick() {
   letter-spacing: 1px;
 
   &:hover .action-brush {
-    fill: #3f95e0;
+    fill: #c9ad14;
   }
 
   &:active .action-brush {
-    fill: #1779ce;
+    fill: #b59c14;
     fill: background-color .1s;
   }
 }
