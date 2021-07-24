@@ -146,12 +146,13 @@ function startGacha() {
           <GBrushLine class="line" />
         </div>
       </div>
+
       <div class="sns">
         <GTwitterShareButton
           class="share-button"
           :label="t('shareResult')"
           :text="result"
-          url="https://got-gacha.netlify.app/"
+          url="https://www.giteki.app"
           hashtags="GoTGACHA,GhostofTsushima"
         />
       </div>
