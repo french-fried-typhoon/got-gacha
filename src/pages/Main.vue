@@ -160,7 +160,9 @@ function startGacha() {
         <p class="footer-text">
           {{ t('createdBy') }}<br>
           {{ t('fft') }}<br>
-          {{ t('giteki') }}
+          <a class="footer-link" href="https://www.youtube.com/channel/UCv4sa8ugMHSuOeM1knvXf5Q" target="_blank">
+            {{ t('giteki') }}
+          </a>
         </p>
       </footer>
     </div>
@@ -385,6 +387,15 @@ function startGacha() {
   @media (min-width: 768px) {
     line-height: 24px;
     font-size: 16px;
+  }
+}
+
+.footer-link {
+  color: #000000;
+  transition: color .25s;
+
+  &:hover {
+    color: rgba(60, 60, 67, .75);
   }
 }
 </style>
