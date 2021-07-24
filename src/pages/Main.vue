@@ -159,7 +159,8 @@ function startGacha() {
       <footer class="footer">
         <p class="footer-text">
           {{ t('createdBy') }}<br>
-          {{ t('fft') }}
+          {{ t('fft') }}<br>
+          {{ t('giteki') }}
         </p>
       </footer>
     </div>
