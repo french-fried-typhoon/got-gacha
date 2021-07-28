@@ -51,13 +51,13 @@ const godItemCount = computed(() => {
 
 const result = computed(() => {
   return `
-    【GoT GACHA 結果】%0a
-    役目： ${gotRole.value?.text ?? '未決定' } %0a
-    太刀： ${gotTachiWeapon.value?.text ?? '未決定' } %0a
-    遠距離： ${gotLongDistanceWeapon.value?.text ?? '未決定' } %0a
-    護符： ${gotGofuWeapon.value?.text ?? '未決定' } %0a
-    暗具 壱： ${gotAngu1Weapon.value?.text ?? '未決定' } %0a
-    暗具 弍： ${gotAngu2Weapon.value?.text ?? '未決定' } %0a
+    【Got GACHA Result】 %0a
+    ${t('item.class')}: ${gotRole.value?.name ? t('class.' + gotRole.value.name) : t('undecided') } %0a
+    ${t('item.katana')}: ${gotTachiWeapon.value?.name ? t('katana.' + gotTachiWeapon.value.name) : t('undecided') } %0a
+    ${t('item.ranged')}: ${gotLongDistanceWeapon.value?.name ? t('ranged.' + gotLongDistanceWeapon.value.name) : t('undecided') } %0a
+    ${t('item.charm')}: ${gotGofuWeapon.value?.name ? t('charm.' + gotGofuWeapon.value.name) : t('undecided') } %0a
+    ${t('item.ghostWeapon1')}: ${gotAngu1Weapon.value?.name ? t('ghostWeapon1.' + gotAngu1Weapon.value.name) : t('undecided') } %0a
+    ${t('item.ghostWeapon2')}: ${gotAngu2Weapon.value?.name ? t('ghostWeapon2.' + gotAngu2Weapon.value.name) : t('undecided') } %0a
   `
 })
 
