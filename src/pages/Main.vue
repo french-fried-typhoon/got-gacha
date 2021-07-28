@@ -15,7 +15,8 @@ import GTwitterShareButton from '../components/GTwitterShareButton.vue'
 import { shuffle } from '../utils/array'
 
 const { locale, t } = useI18n({
-  inheritLocale: true
+  useScope: 'global',
+  inheritLocale: false
 })
 
 const count = ref(0)
@@ -73,10 +74,14 @@ function startGacha() {
       : gacha(gotRole.value?.name!, false)
   })
 }
+
+function changeLocale(toLocale: 'ja' | 'en') {
+  locale.value = toLocale
+}
 </script>
 
 <template>
-  <div class="Main">
+  <div class="Main" :class="locale">
     <div class="container">
       <div class="header">
         <h1 class="title">GoT GACHA</h1>
@@ -166,6 +171,11 @@ function startGacha() {
           </a>
         </p>
       </footer>
+
+      <div class="locale">
+        <a class="locale-text" :class="{ inactive: locale === 'ja' }" @click="changeLocale('ja')">日本語</a> |
+        <a class="locale-text" :class="{ inactive: locale === 'en' }" @click="changeLocale('en')">English</a>
+      </div>
     </div>
   </div>
 </template>
@@ -312,15 +322,21 @@ function startGacha() {
   position: relative;
   flex-shrink: 0;
   padding-right: 24px;
-  width: 80px;
-  font-size: 16px;
+  width: 120px;
   font-weight: 700;
   color: rgba(60, 60, 67, .75);
 
   @media (min-width: 768px) {
-    font-size: 20px;
     width: 128px;
   }
+}
+
+.ja .label { font-size: 16px; }
+.en .label { font-size: 14px; }
+
+@media (min-width: 768px) {
+  .ja .label { font-size: 20px; }
+  .en .label { font-size: 16px; }
 }
 
 .value {
@@ -368,6 +384,23 @@ function startGacha() {
   padding-top: 32px;
   max-width: 480px;
   margin: 0 auto;
+}
+
+.locale {
+  text-align: center;
+  padding: 16px;
+}
+
+.locale-text {
+  color: rgba(60, 60, 67, .75);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .15s;
+
+  &:hover:not(.inactive){
+    color: rgba(60, 60, 67, 1);
+  }
 }
 
 .footer {
