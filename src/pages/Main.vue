@@ -51,7 +51,7 @@ const godItemCount = computed(() => {
 
 const result = computed(() => {
   return `
-    【Got GACHA Result】 %0a
+    ${t('shareTitle')} %0a
     ${t('item.class')}: ${gotRole.value?.name ? t('class.' + gotRole.value.name) : t('undecided') } %0a
     ${t('item.katana')}: ${gotTachiWeapon.value?.name ? t('katana.' + gotTachiWeapon.value.name) : t('undecided') } %0a
     ${t('item.ranged')}: ${gotLongDistanceWeapon.value?.name ? t('ranged.' + gotLongDistanceWeapon.value.name) : t('undecided') } %0a
