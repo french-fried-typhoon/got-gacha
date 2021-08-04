@@ -148,7 +148,7 @@ export function useGotLongDistanceWeapon() {
  * - 円浄の嘆き enjosRemorse
  * - 不撓不屈 lastBreath
  * - 鋼の宿怨 sacredIron
- * - 弁慶の護符 benkeisLastStand
+ * - 弁慶の庇護 benkeisLastStand
  * - 将軍の守り shogunsFortitune
  * - 守りの護符 defenseCharm
  * - 利益の護符 utilityCharm
@@ -171,7 +171,7 @@ const gotGofuWeaponGachaItems: GotGofuWeaponGachaItem[]  = [
   { name: 'enjosRemorse', text: '円浄の嘆き', probability: 7, isGodItem: true, belongRole: allGotRole },
   { name: 'lastBreath', text: '不撓不屈', probability: 7, isGodItem: true, belongRole: allGotRole },
   { name: 'sacredIron', text: '鋼の宿怨', probability: 7, isGodItem: true, belongRole: allGotRole },
-  { name: 'benkeisLastStand', text: '弁慶の護符', probability: 7, isGodItem: true, belongRole: allGotRole },
+  { name: 'benkeisLastStand', text: '弁慶の庇護', probability: 7, isGodItem: true, belongRole: allGotRole },
   { name: 'shogunsFortitune', text: '将軍の守り', probability: 7, isGodItem: true, belongRole: allGotRole },
   { name: 'defenseCharm', text: '守りの護符', probability: 9, isGodItem: false, belongRole: allGotRole },
   { name: 'utilityCharm', text: '利益の護符', probability: 9, isGodItem: false, belongRole: allGotRole },
