@@ -75,9 +75,6 @@ function startGacha() {
   })
 }
 
-function changeLocale(toLocale: 'ja' | 'en') {
-  locale.value = toLocale
-}
 </script>
 
 <template>
@@ -173,8 +170,8 @@ function changeLocale(toLocale: 'ja' | 'en') {
       </footer>
 
       <div class="locale">
-        <a class="locale-text" :class="{ inactive: locale === 'ja' }" @click="changeLocale('ja')">日本語</a> |
-        <a class="locale-text" :class="{ inactive: locale === 'en' }" @click="changeLocale('en')">English</a>
+        <RouterLink class="locale-text" to="/" :class="{ inactive: locale === 'ja' }">日本語</RouterLink> |
+        <RouterLink class="locale-text" to="/en" :class="{ inactive: locale === 'en' }">English</RouterLink>
       </div>
     </div>
   </div>
@@ -397,6 +394,10 @@ function changeLocale(toLocale: 'ja' | 'en') {
   font-weight: 600;
   cursor: pointer;
   transition: color .15s;
+
+  &.inactive {
+    color: rgba(60, 60, 67, 1);
+  }
 
   &:hover:not(.inactive){
     color: rgba(60, 60, 67, 1);
