@@ -1,12 +1,11 @@
 import { createI18n } from 'vue-i18n'
-import { useLocalStorage } from '@vueuse/core'
 import ja from './locale/ja.json'
 import en from './locale/en.json'
 
 export type Locale = typeof locales[number]
 export const locales = ['ja', 'en'] as const
 
-export const language = useLocalStorage('locale', getInitialLocale())
+export const language = getInitialLocale()
 
 export function getInitialLocale() {
   const defaultLang = 'ja'
@@ -21,7 +20,7 @@ export function changeLocale(toLocale: Locale) {
 
 export const i18n = createI18n({
   legacy: false,
-  locale: language.value,
+  locale: language,
   fallbackLocale: 'en',
   messages: {
     en,
