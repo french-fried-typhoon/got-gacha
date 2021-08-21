@@ -121,7 +121,7 @@ export interface GotLongDistanceWeaponGachaItem extends GachaWeaponItem {
 const gotLongDistanceWeaponGachaItems: GotLongDistanceWeaponGachaItem[]  = [
   { name: 'theWeightlessSpirit', text: '浮遊の弓', probability: 13, isGodItem: true, belongRole: allGotRole },
   { name: 'stoneSkippingBow', text: '飛石の弓', probability: 8, isGodItem: true, belongRole: allGotRole },
-  { name: 'forbiddenMedicine', text: '禁制の火薬', probability: 8, isGodItem: true, belongRole: ['ronin', 'assassin'] },
+  { name: 'forbiddenMedicine', text: '禁制の火薬', probability: 8, isGodItem: true, belongRole: ['ronin', 'assassin', 'samurai'] },
   { name: 'heavensSting', text: '天降る牙', probability: 15, isGodItem: true, belongRole: ['ronin', 'assassin'] },
   { name: 'halfBow', text: '半弓', probability: 15, isGodItem: true, belongRole: allGotRole },
   { name: 'blowgun', text: '吹き針', probability: 15, isGodItem: false, belongRole: ['ronin', 'assassin'] },
