@@ -21,7 +21,7 @@ function gacha<T extends GachaItem>(items: T[]): T | null {
   for (let i=0; i<items.length; i++) {
     const adjusted = items[i].probability/sum * 100
     current += adjusted
-    if (current >= rand) {
+    if (current > rand-1) {
       return items[i]
     }
   }
