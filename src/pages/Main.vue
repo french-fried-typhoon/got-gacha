@@ -69,7 +69,7 @@ function startGacha() {
 
   // Weapon Gacha
   weaponGachas.forEach(gacha => {
-    godItemCount.value >= 2
+    godItemCount.value >= 3
       ? gacha(gotRole.value?.name!, true)
       : gacha(gotRole.value?.name!, false)
   })
