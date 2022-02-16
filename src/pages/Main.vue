@@ -10,11 +10,11 @@ import {
   useGotTachiWeapon,
   decideCommonItem
 } from '../composables/gacha'
+import GCheckbox from '../components/GCheckbox.vue'
 import GBrushStroke from '../components/GBrushStroke.vue'
 import GBrushLine from '../components/GBrushLine.vue'
 import GBrushLineShort from '../components/GBrushLineShort.vue'
 import GTwitterShareButton from '../components/GTwitterShareButton.vue'
-import GCheckbox from '../components/GCheckbox.vue'
 import { shuffle } from '../utils/array'
 
 const { locale, t } = useI18n({
