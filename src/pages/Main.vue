@@ -117,9 +117,10 @@ function getWeaponItemName(weaponItem: any) {
           <span class="action-text">{{ t('rollGacha') }}</span>
         </button>
         <GCheckbox
-          :label="t('retroMode')"
-          v-model="isRetroMode"
           class="action-checkbox"
+          :label="t('retroMode')"
+          :value="isRetroMode"
+          @change="v => isRetroMode = v"
         />
       </div>
 
@@ -142,7 +143,7 @@ function getWeaponItemName(weaponItem: any) {
                 <GBrushLineShort v-if="isCommonWeaponItem(gotTachiWeapon)" class="strike" />
               </div>
               <transition name="fade">
-                <span class="common" v-if="isCommonWeaponItem(gotTachiWeapon)">
+                <span v-if="isCommonWeaponItem(gotTachiWeapon)" class="common">
                   {{ t('katana.common') }}
                 </span>
               </transition>
@@ -159,7 +160,7 @@ function getWeaponItemName(weaponItem: any) {
                 <GBrushLineShort v-if="isCommonWeaponItem(gotLongDistanceWeapon)" class="strike" />
               </div>
               <transition name="fade">
-                <span class="common" v-if="isCommonWeaponItem(gotLongDistanceWeapon)">
+                <span v-if="isCommonWeaponItem(gotLongDistanceWeapon)" class="common">
                   {{ t('ranged.common') }}
                 </span>
               </transition>
@@ -176,7 +177,7 @@ function getWeaponItemName(weaponItem: any) {
                 <GBrushLineShort v-if="isCommonWeaponItem(gotGofuWeapon)" class="strike" />
               </div>
               <transition name="fade">
-                <span class="common" v-if="isCommonWeaponItem(gotGofuWeapon)">
+                <span v-if="isCommonWeaponItem(gotGofuWeapon)" class="common">
                   {{ t('charm.common') }}
                 </span>
               </transition>
@@ -193,7 +194,7 @@ function getWeaponItemName(weaponItem: any) {
                 <GBrushLineShort v-if="isCommonWeaponItem(gotAngu1Weapon)" class="strike" />
               </div>
               <transition name="fade">
-                <span class="common" v-if="isCommonWeaponItem(gotAngu1Weapon)">
+                <span v-if="isCommonWeaponItem(gotAngu1Weapon)" class="common">
                   {{ t('ghostWeapon1.common') }}
                 </span>
               </transition>
@@ -210,7 +211,7 @@ function getWeaponItemName(weaponItem: any) {
                 <GBrushLineShort v-if="isCommonWeaponItem(gotAngu2Weapon)" class="strike" />
               </div>
               <transition name="fade">
-                <span class="common" v-if="isCommonWeaponItem(gotAngu2Weapon)">
+                <span v-if="isCommonWeaponItem(gotAngu2Weapon)" class="common">
                   {{ t('ghostWeapon2.common') }}
                 </span>
               </transition>

@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const props = defineProps({
-  modelValue: { type: Boolean, default: false },
+  value: { type: Boolean, default: false },
   label: { type: String, required: true }
 })
 
-defineEmits(['update:modelValue'])
+defineEmits(['change'])
 </script>
 
 <template>
   <div class="GCheckbox">
     <input
-      type="checkbox"
       :id="`gcheck-${label}`"
+      v-model="value"
+      type="checkbox"
       :name="`gcheck-${label}`"
-      v-model="modelValue"
-      @change="$emit('update:modelValue', modelValue)"
+      @change="$emit('change', value)"
     >
     <label :for="`gcheck-${label}`" class="label">{{ label }}</label>
   </div>
