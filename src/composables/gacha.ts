@@ -9,6 +9,7 @@ export interface GachaItem {
 export interface GachaWeaponItem extends GachaItem {
   isGodItem: boolean
   belongRole: GotRole[]
+  isCommon?: boolean
 }
 
 function gacha<T extends GachaItem>(items: T[]): T | null {
@@ -71,7 +72,7 @@ export function useGotRole() {
  * - 石の太刀 stoneKatana
  */
 export type GotTachiWeapon = 'mastersKatana' | 'masamunesEdge' | 'stoneStriker' | 'yoshitsunesHand'
-  | 'demonCutter' | 'wrathOfSarugami' | 'waterKatana' | 'moonKatana' | 'windKatana' | 'stoneKatana'
+  | 'demonCutter' | 'wrathOfSarugami' | 'waterKatana' | 'moonKatana' | 'windKatana' | 'stoneKatana' | 'common'
 export interface GotTachiWeaponGachaItem extends GachaWeaponItem {
   name: GotTachiWeapon
 }
@@ -116,7 +117,7 @@ export function useGotTachiWeapon() {
  * - 長弓 longBow
  */
 export type GotLongDistanceWeapon = 'theWeightlessSpirit' | 'stoneSkippingBow' | 'forbiddenMedicine' | 'heavensSting'
-  | 'sugarusSight' | 'halfBow' | 'blowgun' | 'bombPack' | 'longBow'
+  | 'sugarusSight' | 'halfBow' | 'blowgun' | 'bombPack' | 'longBow' | 'common'
 export interface GotLongDistanceWeaponGachaItem extends GachaWeaponItem {
   name: GotLongDistanceWeapon
 }
@@ -169,7 +170,7 @@ export function useGotLongDistanceWeapon() {
  */
 export type GotGofuWeapon = 'enjosRemorse' | 'lastBreath' | 'sacredIron' | 'benkeisLastStand'
   | 'shogunsFortitune' | 'sarugamisGlare' | 'restorativeRhythm' | 'heavenlyRebuke' | 'defenseCharm' | 'utilityCharm' | 'assassinCharm' | 'meleeCharm'
-  | 'samuraiCharm' | 'rangedCharm' | 'roninCharm' | 'stealthCharm' | 'hunterCharm'
+  | 'samuraiCharm' | 'rangedCharm' | 'roninCharm' | 'stealthCharm' | 'hunterCharm' | 'common'
 export interface GotGofuWeaponGachaItem extends GachaWeaponItem {
   name: GotGofuWeapon
 }
@@ -219,7 +220,7 @@ export function useGotGofuWeapon() {
  * - とりもち玉 stickyBomb
  */
 export type GotAngu1Weapon = 'spiritKunai' | 'ladySanjosSurprise' | 'theTouchOfHeaven' | 'magumaBomb' | 'kunai'
-  | 'dirtThrow' | 'stickyBomb'
+  | 'dirtThrow' | 'stickyBomb' | 'common'
 export interface GotAngu1WeaponGachaItem extends GachaWeaponItem {
   name: GotAngu1Weapon
 }
@@ -260,7 +261,7 @@ export function useGotAngu1Weapon() {
  * - 煙玉 smokeBomb
  */
 export type GotAngu2Weapon = 'mistOfYagata' | 'demonSeeds' | 'kenjisSharedBrew' | 'bottoleOfLiquidCourage' | 'healingGourd'
-  | 'caltrops' | 'smokeBomb'
+  | 'caltrops' | 'smokeBomb' | 'common'
 export interface GotAngu2WeaponGachaItem extends GachaWeaponItem {
   name: GotAngu2Weapon
 }
@@ -287,4 +288,16 @@ export function useGotAngu2Weapon() {
         )
   }
   return { gotAngu2Weapon, startGacha }
+}
+
+export function decideCommonItem(results: Ref<GachaWeaponItem | null>[]) {
+  const length = results.length
+  const target = results[Math.floor(Math.random()*length)]
+
+  target.value = {
+    ...target.value!,
+    isCommon: true
+  }
+
+  return results
 }

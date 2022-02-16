@@ -1,5 +1,6 @@
 {
   "rollGacha": "ガチャを回す",
+  "retroMode": "Retroモード",
   "shareResult": "結果をシェア",
   "createdBy": "考案・制作・管理",
   "fft": "フレンチ・フライド・タイフーン",
@@ -30,7 +31,8 @@
     "waterKatana": "水の太刀",
     "moonKatana": "月の太刀",
     "windKatana": "風の太刀",
-    "stoneKatana": "石の太刀"
+    "stoneKatana": "石の太刀",
+    "common": "汎用"
   },
   "ranged": {
     "theWeightlessSpirit": "浮遊の弓",
@@ -41,7 +43,8 @@
     "halfBow": "半弓",
     "blowgun": "吹き針",
     "bombPack": "腰袋",
-    "longBow": "長弓"
+    "longBow": "長弓",
+    "common": "汎用"
   },
   "charm": {
     "enjosRemorse": "円浄の嘆き",
@@ -60,7 +63,8 @@
     "rangedCharm": "遠距離の護符",
     "roninCharm": "牢人の護符",
     "stealthCharm": "隠密の護符",
-    "hunterCharm": "弓取の護符"
+    "hunterCharm": "弓取の護符",
+    "common": "汎用"
   },
   "ghostWeapon1": {
     "spiritKunai": "くない・改",
@@ -69,7 +73,8 @@
     "magumaBomb": "火焔玉",
     "kunai": "くない",
     "dirtThrow": "泥投げ",
-    "stickyBomb": "とりもち玉"
+    "stickyBomb": "とりもち玉",
+    "common": "汎用"
   },
   "ghostWeapon2": {
     "mistOfYagata": "矢形の霧",
@@ -78,6 +83,7 @@
     "bottoleOfLiquidCourage": "士魂の水",
     "healingGourd": "回復薬",
     "caltrops": "まきびし",
-    "smokeBomb": "煙玉"
+    "smokeBomb": "煙玉",
+    "common": "汎用"
   }
 }

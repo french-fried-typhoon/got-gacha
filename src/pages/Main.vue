@@ -7,11 +7,14 @@ import {
   useGotGofuWeapon,
   useGotLongDistanceWeapon,
   useGotRole,
-  useGotTachiWeapon
+  useGotTachiWeapon,
+  decideCommonItem
 } from '../composables/gacha'
 import GBrushStroke from '../components/GBrushStroke.vue'
 import GBrushLine from '../components/GBrushLine.vue'
+import GBrushLineShort from '../components/GBrushLineShort.vue'
 import GTwitterShareButton from '../components/GTwitterShareButton.vue'
+import GCheckbox from '../components/GCheckbox.vue'
 import { shuffle } from '../utils/array'
 
 const { locale, t } = useI18n({
@@ -21,12 +24,22 @@ const { locale, t } = useI18n({
 
 const count = ref(0)
 
+const isRetroMode = ref(false)
+
 const { gotRole, startGacha: startGotRoleGacha } = useGotRole()
 const { gotTachiWeapon, startGacha: startGotTachiWeaponGacha } = useGotTachiWeapon()
 const { gotLongDistanceWeapon, startGacha: startGotLongDistanceWeaponGacha } = useGotLongDistanceWeapon()
 const { gotGofuWeapon, startGacha: startGotGofuWeaponGacha } = useGotGofuWeapon()
 const { gotAngu1Weapon, startGacha: startGotAngu1WeaponGacha } = useGotAngu1Weapon()
 const { gotAngu2Weapon, startGacha: startGotAngu2WeaponGacha } = useGotAngu2Weapon()
+
+const gachaWeaponItems = [
+  gotTachiWeapon,
+  gotLongDistanceWeapon,
+  gotGofuWeapon,
+  gotAngu1Weapon,
+  gotAngu2Weapon
+]
 
 const weaponGachas: ((gotRole: string, excludeGodItem?: boolean) => void)[] = shuffle([
   startGotTachiWeaponGacha,
@@ -53,11 +66,11 @@ const result = computed(() => {
   return `
     ${t('shareTitle')} %0a
     ${t('item.class')}: ${gotRole.value?.name ? t('class.' + gotRole.value.name) : t('undecided') } %0a
-    ${t('item.katana')}: ${gotTachiWeapon.value?.name ? t('katana.' + gotTachiWeapon.value.name) : t('undecided') } %0a
-    ${t('item.ranged')}: ${gotLongDistanceWeapon.value?.name ? t('ranged.' + gotLongDistanceWeapon.value.name) : t('undecided') } %0a
-    ${t('item.charm')}: ${gotGofuWeapon.value?.name ? t('charm.' + gotGofuWeapon.value.name) : t('undecided') } %0a
-    ${t('item.ghostWeapon1')}: ${gotAngu1Weapon.value?.name ? t('ghostWeapon1.' + gotAngu1Weapon.value.name) : t('undecided') } %0a
-    ${t('item.ghostWeapon2')}: ${gotAngu2Weapon.value?.name ? t('ghostWeapon2.' + gotAngu2Weapon.value.name) : t('undecided') } %0a
+    ${t('item.katana')}: ${gotTachiWeapon.value?.name ? t('katana.' + getWeaponItemName(gotTachiWeapon.value)) : t('undecided') } %0a
+    ${t('item.ranged')}: ${gotLongDistanceWeapon.value?.name ? t('ranged.' + getWeaponItemName(gotLongDistanceWeapon.value)) : t('undecided') } %0a
+    ${t('item.charm')}: ${gotGofuWeapon.value?.name ? t('charm.' + getWeaponItemName(gotGofuWeapon.value)) : t('undecided') } %0a
+    ${t('item.ghostWeapon1')}: ${gotAngu1Weapon.value?.name ? t('ghostWeapon1.' + getWeaponItemName(gotAngu1Weapon.value)) : t('undecided') } %0a
+    ${t('item.ghostWeapon2')}: ${gotAngu2Weapon.value?.name ? t('ghostWeapon2.' + getWeaponItemName(gotAngu2Weapon.value)) : t('undecided') } %0a
   `
 })
 
@@ -73,8 +86,21 @@ function startGacha() {
       ? gacha(gotRole.value?.name!, true)
       : gacha(gotRole.value?.name!, false)
   })
+
+  isRetroMode.value && startRetro()
 }
 
+function startRetro() {
+  setTimeout(() => decideCommonItem(gachaWeaponItems), 13000)
+}
+
+function isCommonWeaponItem(weaponItem: any) {
+  return weaponItem?.isCommon
+}
+
+function getWeaponItemName(weaponItem: any) {
+  return isCommonWeaponItem(weaponItem) ? 'common' : weaponItem.name
+}
 </script>
 
 <template>
@@ -90,6 +116,11 @@ function startGacha() {
           <GBrushStroke class="action-brush" />
           <span class="action-text">{{ t('rollGacha') }}</span>
         </button>
+        <GCheckbox
+          :label="t('retroMode')"
+          v-model="isRetroMode"
+          class="action-checkbox"
+        />
       </div>
 
       <div class="data">
@@ -105,45 +136,85 @@ function startGacha() {
         <div class="item">
           <p class="label">{{ t('item.katana') }}</p>
           <transition name="fade" mode="out-in">
-            <p :key="count" class="value">
-              {{ gotTachiWeapon?.name ? t(`katana.${gotTachiWeapon?.name}`) : '???' }}
-            </p>
+            <div :key="count" class="value">
+              <div class="value-text">
+                {{ gotTachiWeapon?.name ? t(`katana.${gotTachiWeapon?.name}`) : '???' }}
+                <GBrushLineShort v-if="isCommonWeaponItem(gotTachiWeapon)" class="strike" />
+              </div>
+              <transition name="fade">
+                <span class="common" v-if="isCommonWeaponItem(gotTachiWeapon)">
+                  {{ t('katana.common') }}
+                </span>
+              </transition>
+            </div>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">{{ t('item.ranged') }}</p>
           <transition name="fade" mode="out-in">
-            <p :key="count" class="value">
-              {{ gotLongDistanceWeapon?.name ? t(`ranged.${gotLongDistanceWeapon?.name}`) : '???' }}
-            </p>
+            <div :key="count" class="value">
+              <div class="value-text">
+                {{ gotLongDistanceWeapon?.name ? t(`ranged.${gotLongDistanceWeapon?.name}`) : '???' }}
+                <GBrushLineShort v-if="isCommonWeaponItem(gotLongDistanceWeapon)" class="strike" />
+              </div>
+              <transition name="fade">
+                <span class="common" v-if="isCommonWeaponItem(gotLongDistanceWeapon)">
+                  {{ t('ranged.common') }}
+                </span>
+              </transition>
+            </div>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">{{ t('item.charm') }}</p>
           <transition name="fade" mode="out-in">
-            <p :key="count" class="value">
-              {{ gotGofuWeapon?.name ? t(`charm.${gotGofuWeapon?.name}`) : '???' }}
-            </p>
+            <div :key="count" class="value">
+              <div class="value-text">
+                {{ gotGofuWeapon?.name ? t(`charm.${gotGofuWeapon?.name}`) : '???' }}
+                <GBrushLineShort v-if="isCommonWeaponItem(gotGofuWeapon)" class="strike" />
+              </div>
+              <transition name="fade">
+                <span class="common" v-if="isCommonWeaponItem(gotGofuWeapon)">
+                  {{ t('charm.common') }}
+                </span>
+              </transition>
+            </div>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">{{ t('item.ghostWeapon1') }}</p>
           <transition name="fade" mode="out-in">
-            <p :key="count" class="value">
-              {{ gotAngu1Weapon?.name ? t(`ghostWeapon1.${gotAngu1Weapon?.name}`) : '???' }}
-            </p>
+            <div :key="count" class="value">
+              <div class="value-text">
+                {{ gotAngu1Weapon?.name ? t(`ghostWeapon1.${gotAngu1Weapon?.name}`) : '???' }}
+                <GBrushLineShort v-if="isCommonWeaponItem(gotAngu1Weapon)" class="strike" />
+              </div>
+              <transition name="fade">
+                <span class="common" v-if="isCommonWeaponItem(gotAngu1Weapon)">
+                  {{ t('ghostWeapon1.common') }}
+                </span>
+              </transition>
+            </div>
           </transition>
           <GBrushLine class="line" />
         </div>
         <div class="item">
           <p class="label">{{ t('item.ghostWeapon2') }}</p>
           <transition name="fade" mode="out-in">
-            <p :key="count" class="value">
-              {{ gotAngu2Weapon?.name ? t(`ghostWeapon2.${gotAngu2Weapon?.name}`) : '???' }}
-            </p>
+            <div :key="count" class="value">
+              <div class="value-text">
+                {{ gotAngu2Weapon?.name ? t(`ghostWeapon2.${gotAngu2Weapon?.name}`) : '???' }}
+                <GBrushLineShort v-if="isCommonWeaponItem(gotAngu2Weapon)" class="strike" />
+              </div>
+              <transition name="fade">
+                <span class="common" v-if="isCommonWeaponItem(gotAngu2Weapon)">
+                  {{ t('ghostWeapon2.common') }}
+                </span>
+              </transition>
+            </div>
           </transition>
           <GBrushLine class="line" />
         </div>
@@ -274,6 +345,13 @@ function startGacha() {
   transition: fill .25s;
 }
 
+.action-checkbox {
+  margin: 16px auto;
+  width: 100%;
+  max-width: 512px;
+  text-align: center;
+}
+
 .data {
   margin: 32px auto 0;
   max-width: 480px;
@@ -337,6 +415,7 @@ function startGacha() {
 }
 
 .value {
+  display: flex;
   font-size: 16px;
   font-weight: 700;
 
@@ -345,21 +424,39 @@ function startGacha() {
   }
 }
 
-.value.fade-enter-active {
+.value-text {
+  position: relative;
+}
+
+.strike {
+  position: absolute;
+  top: 6px;
+  left: -6px;
+  height: 10px;
+  width: 112%;
+  stroke: #000000;
+  stroke-width: 5;
+}
+
+.common {
+  margin-left: 24px;
+}
+
+.value.fade-enter-active, .common.fade-enter-active {
   transition: opacity 2s, transform 2s ease, filter 2s ease;
 }
 
-.value.fade-leave-active {
+.value.fade-leave-active, .common.fade-leave-active {
   transition: opacity .15s, transform .15s, filter .15s;
 }
 
-.value.fade-enter-from {
+.value.fade-enter-from, .common.fade-enter-from {
   opacity: 0;
   filter: blur(32px);
   transform: translateX(24px) scale(8);
 }
 
-.value.fade-leave-to {
+.value.fade-leave-to, .common.fade-leave-to {
   opacity: 0;
   filter: blur(16px);
   transform: translateX(-8px) scale(.8);

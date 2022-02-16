@@ -1,5 +1,6 @@
 {
   "rollGacha": "Roll a GACHA",
+  "retroMode": "Retro mode",
   "shareResult": "SHARE THE RESULT",
   "createdBy": "Created by",
   "fft": "French Fried Typhoon",
@@ -30,7 +31,8 @@
     "waterKatana": "WATER KATANA",
     "moonKatana": "MOON KATANA",
     "windKatana": "WIND KATANA",
-    "stoneKatana": "STONE KATANA"
+    "stoneKatana": "STONE KATANA",
+    "common": "COMMON"
   },
   "ranged": {
     "theWeightlessSpirit": "THE WEIGHTLESS SPIRIT",
@@ -41,7 +43,8 @@
     "halfBow": "HALF BOW",
     "blowgun": "BLOWGUN",
     "bombPack": "BOMB PACK",
-    "longBow": "LONGBOW"
+    "longBow": "LONGBOW",
+    "common": "COMMON"
   },
   "charm": {
     "enjosRemorse": "ENJO’S REMORSE",
@@ -60,7 +63,8 @@
     "rangedCharm": "RANGED CHARM",
     "roninCharm": "RONIN CHARM",
     "stealthCharm": "STEALTH CHARM",
-    "hunterCharm": "HUNTER CHARM"
+    "hunterCharm": "HUNTER CHARM",
+    "common": "COMMON"
   },
   "ghostWeapon1": {
     "spiritKunai": "SPIRIT KUNAI",
@@ -69,7 +73,8 @@
     "magumaBomb": "MAGUMA BOMB",
     "kunai": "KUNAI",
     "dirtThrow": "DIRT THROW",
-    "stickyBomb": "STICKY BOMB"
+    "stickyBomb": "STICKY BOMB",
+    "common": "COMMON"
   },
   "ghostWeapon2": {
     "mistOfYagata": "MIST OF YAGATA",
@@ -78,6 +83,7 @@
     "bottoleOfLiquidCourage": "BOTTLE OF LIQUID COURAGE",
     "healingGourd": "HEALING GOURD",
     "caltrops": "CALTROPS",
-    "smokeBomb": "SMOKE BOMB"
+    "smokeBomb": "SMOKE BOMB",
+    "common": "COMMON"
   }
 }
