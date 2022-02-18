@@ -15,10 +15,10 @@ function handleChange() {
   <div class="GCheckbox">
     <input
       :id="`gcheck-${label}`"
-      v-model="value"
       type="checkbox"
       :name="`gcheck-${label}`"
-      @change="handleChange"
+      v-model="value"
+      @update:modelValue="handleChange"
     >
     <label :for="`gcheck-${label}`" class="label">{{ label }}</label>
   </div>
