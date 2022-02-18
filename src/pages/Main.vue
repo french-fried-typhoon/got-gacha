@@ -101,6 +101,10 @@ function isCommonWeaponItem(weaponItem: any) {
 function getWeaponItemName(weaponItem: any) {
   return isCommonWeaponItem(weaponItem) ? 'common' : weaponItem.name
 }
+
+function handleRetroMode(value: boolean) {
+  isRetroMode.value = value
+}
 </script>
 
 <template>
@@ -120,7 +124,7 @@ function getWeaponItemName(weaponItem: any) {
           class="action-checkbox"
           :label="t('retroMode')"
           :value="isRetroMode"
-          @change="v => isRetroMode = v"
+          @change="handleRetroMode"
         />
       </div>
 
