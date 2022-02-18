@@ -102,7 +102,7 @@ function getWeaponItemName(weaponItem: any) {
   return isCommonWeaponItem(weaponItem) ? 'common' : weaponItem.name
 }
 
-function handleRetroMode(value: boolean) {
+function handleRetroMode(value: any) {
   isRetroMode.value = value
 }
 </script>

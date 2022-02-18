@@ -4,7 +4,11 @@ const props = defineProps({
   label: { type: String, required: true }
 })
 
-defineEmits(['change'])
+const emit = defineEmits(['change'])
+
+function handleChange() {
+  emit('change', props.value)
+}
 </script>
 
 <template>
@@ -14,7 +18,7 @@ defineEmits(['change'])
       v-model="value"
       type="checkbox"
       :name="`gcheck-${label}`"
-      @change="$emit('change', value)"
+      @change="handleChange"
     >
     <label :for="`gcheck-${label}`" class="label">{{ label }}</label>
   </div>
