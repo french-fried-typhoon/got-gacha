@@ -17,9 +17,9 @@ function handleChange() {
   <div class="GCheckbox">
     <input
       :id="`gcheck-${label}`"
+      v-model="valueRef"
       type="checkbox"
       :name="`gcheck-${label}`"
-      v-model="valueRef"
       @change="handleChange"
     >
     <label :for="`gcheck-${label}`" class="label">{{ label }}</label>
@@ -41,7 +41,6 @@ function handleChange() {
   background: #fff;
   border: 1px solid #000000;
   border-radius: 4px;
-  opacity: .5;
   content: '';
   display: block;
   height: 18px;
