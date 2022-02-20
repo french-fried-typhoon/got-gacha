@@ -6,8 +6,10 @@ const props = defineProps({
 
 const emit = defineEmits(['change'])
 
+const valueRef = ref(props.value)
+
 function handleChange() {
-  emit('change', props.value)
+  emit('change', valueRef.value)
 }
 </script>
 
@@ -17,8 +19,8 @@ function handleChange() {
       :id="`gcheck-${label}`"
       type="checkbox"
       :name="`gcheck-${label}`"
-      v-model="value"
-      @update:modelValue="handleChange"
+      v-model="valueRef"
+      @change="handleChange"
     >
     <label :for="`gcheck-${label}`" class="label">{{ label }}</label>
   </div>
