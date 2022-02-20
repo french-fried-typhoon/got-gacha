@@ -39,8 +39,8 @@ function handleChange() {
 
 .label::before {
   background: #fff;
-  border: 1px solid #231815;
-  border-radius: 2px;
+  border: 1px solid #000000;
+  border-radius: 4px;
   opacity: .5;
   content: '';
   display: block;

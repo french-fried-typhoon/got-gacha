@@ -13,7 +13,6 @@ import {
 import GCheckbox from '../components/GCheckbox.vue'
 import GBrushStroke from '../components/GBrushStroke.vue'
 import GBrushLine from '../components/GBrushLine.vue'
-import GBrushLineShort from '../components/GBrushLineShort.vue'
 import GTwitterShareButton from '../components/GTwitterShareButton.vue'
 import { shuffle } from '../utils/array'
 
@@ -142,9 +141,8 @@ function handleRetroMode(value: any) {
           <p class="label">{{ t('item.katana') }}</p>
           <transition name="fade" mode="out-in">
             <div :key="count" class="value">
-              <div class="value-text">
+              <div class="value-text" :class="{ strike: isCommonWeaponItem(gotTachiWeapon) }">
                 {{ gotTachiWeapon?.name ? t(`katana.${gotTachiWeapon?.name}`) : '???' }}
-                <GBrushLineShort v-if="isCommonWeaponItem(gotTachiWeapon)" class="strike" />
               </div>
               <transition name="fade">
                 <span v-if="isCommonWeaponItem(gotTachiWeapon)" class="common">
@@ -159,9 +157,8 @@ function handleRetroMode(value: any) {
           <p class="label">{{ t('item.ranged') }}</p>
           <transition name="fade" mode="out-in">
             <div :key="count" class="value">
-              <div class="value-text">
+              <div class="value-text" :class="{ strike: isCommonWeaponItem(gotLongDistanceWeapon) }">
                 {{ gotLongDistanceWeapon?.name ? t(`ranged.${gotLongDistanceWeapon?.name}`) : '???' }}
-                <GBrushLineShort v-if="isCommonWeaponItem(gotLongDistanceWeapon)" class="strike" />
               </div>
               <transition name="fade">
                 <span v-if="isCommonWeaponItem(gotLongDistanceWeapon)" class="common">
@@ -176,9 +173,8 @@ function handleRetroMode(value: any) {
           <p class="label">{{ t('item.charm') }}</p>
           <transition name="fade" mode="out-in">
             <div :key="count" class="value">
-              <div class="value-text">
+              <div class="value-text" :class="{ strike: isCommonWeaponItem(gotGofuWeapon) }">
                 {{ gotGofuWeapon?.name ? t(`charm.${gotGofuWeapon?.name}`) : '???' }}
-                <GBrushLineShort v-if="isCommonWeaponItem(gotGofuWeapon)" class="strike" />
               </div>
               <transition name="fade">
                 <span v-if="isCommonWeaponItem(gotGofuWeapon)" class="common">
@@ -193,9 +189,8 @@ function handleRetroMode(value: any) {
           <p class="label">{{ t('item.ghostWeapon1') }}</p>
           <transition name="fade" mode="out-in">
             <div :key="count" class="value">
-              <div class="value-text">
+              <div class="value-text" :class="{ strike: isCommonWeaponItem(gotAngu1Weapon) }">
                 {{ gotAngu1Weapon?.name ? t(`ghostWeapon1.${gotAngu1Weapon?.name}`) : '???' }}
-                <GBrushLineShort v-if="isCommonWeaponItem(gotAngu1Weapon)" class="strike" />
               </div>
               <transition name="fade">
                 <span v-if="isCommonWeaponItem(gotAngu1Weapon)" class="common">
@@ -210,9 +205,8 @@ function handleRetroMode(value: any) {
           <p class="label">{{ t('item.ghostWeapon2') }}</p>
           <transition name="fade" mode="out-in">
             <div :key="count" class="value">
-              <div class="value-text">
+              <div class="value-text" :class="{ strike: isCommonWeaponItem(gotAngu2Weapon) }">
                 {{ gotAngu2Weapon?.name ? t(`ghostWeapon2.${gotAngu2Weapon?.name}`) : '???' }}
-                <GBrushLineShort v-if="isCommonWeaponItem(gotAngu2Weapon)" class="strike" />
               </div>
               <transition name="fade">
                 <span v-if="isCommonWeaponItem(gotAngu2Weapon)" class="common">
@@ -434,13 +428,7 @@ function handleRetroMode(value: any) {
 }
 
 .strike {
-  position: absolute;
-  top: 6px;
-  left: -6px;
-  height: 10px;
-  width: 112%;
-  stroke: #000000;
-  stroke-width: 5;
+  text-decoration: line-through;
 }
 
 .common {
