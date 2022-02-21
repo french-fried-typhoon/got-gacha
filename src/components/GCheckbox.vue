@@ -34,7 +34,11 @@ function handleChange() {
   padding: 5px 30px;
   position: relative;
   width: auto;
-  font-size: 20px;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .label::before {
@@ -44,11 +48,11 @@ function handleChange() {
   content: '';
   display: block;
   height: 18px;
-  left: -3px;
+  width: 18px;
+  left: 3px;
   margin-top: -8px;
   position: absolute;
   top: 48%;
-  width: 18px;
 }
 
 .label::after {
@@ -57,7 +61,7 @@ function handleChange() {
   content: '';
   display: block;
   height: 31px;
-  left: 2px;
+  left: 8px;
   margin-top: -21px;
   opacity: 0;
   position: absolute;
