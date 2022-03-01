@@ -24,6 +24,7 @@ const { locale, t } = useI18n({
 const count = ref(0)
 
 const isRetroMode = ref(false)
+let retroTimer: any = null
 
 const { gotRole, startGacha: startGotRoleGacha } = useGotRole()
 const { gotTachiWeapon, startGacha: startGotTachiWeaponGacha } = useGotTachiWeapon()
@@ -90,7 +91,8 @@ function startGacha() {
 }
 
 function startRetro() {
-  setTimeout(() => decideCommonItem(gachaWeaponItems), 13000)
+  clearTimeout(retroTimer)
+  retroTimer = setTimeout(() => decideCommonItem(gachaWeaponItems), 13000)
 }
 
 function isCommonWeaponItem(weaponItem: any) {
