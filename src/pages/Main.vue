@@ -226,7 +226,7 @@ function handleRetroMode(value: any) {
           class="share-button"
           :label="t('shareResult')"
           :text="result"
-          url="https://www.giteki.app"
+          url="http://got.sintokyo.world/"
           hashtags="GoTGACHA,GhostofTsushima"
         />
       </div>
@@ -235,8 +235,8 @@ function handleRetroMode(value: any) {
         <p class="footer-text">
           {{ t('createdBy') }}<br>
           {{ t('fft') }}<br>
-          <a class="footer-link" href="https://www.youtube.com/channel/UCv4sa8ugMHSuOeM1knvXf5Q" target="_blank">
-            {{ t('giteki') }}
+          <a class="footer-link" href="http://sintokyo.world/" target="_blank">
+            {{ t('shintokyo') }}
           </a>
         </p>
       </footer>
