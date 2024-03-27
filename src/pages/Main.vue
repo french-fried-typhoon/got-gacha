@@ -226,7 +226,7 @@ function handleRetroMode(value: any) {
           class="share-button"
           :label="t('shareResult')"
           :text="result"
-          url="http://got.sintokyo.world/"
+          url="http://got.sintokyo.link/"
           hashtags="GoTGACHA,GhostofTsushima"
         />
       </div>
@@ -235,7 +235,7 @@ function handleRetroMode(value: any) {
         <p class="footer-text">
           {{ t('createdBy') }}<br>
           {{ t('fft') }}<br>
-          <a class="footer-link" href="http://sintokyo.world/" target="_blank">
+          <a class="footer-link" href="http://sintokyo.link/" target="_blank">
             {{ t('shintokyo') }}
           </a>
         </p>
